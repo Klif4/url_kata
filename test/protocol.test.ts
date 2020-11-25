@@ -10,3 +10,8 @@ it("should extract protocol (https)", () => {
 	expect(new Url(url).protocol()).toBe("https")
 })
 
+it("should extract protocol (ftp)", () => {
+	const url = "ftp://localhost:8080/test";
+	expect(new Url(url).protocol()).toBe("ftp")
+})
+
