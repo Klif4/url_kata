@@ -1,4 +1,4 @@
-import {Url} from "../src/Url";
+import {Protocol, Url} from "../src/Url";
 import each from "jest-each";
 
 it("init", () => {
@@ -14,7 +14,13 @@ each([
 	expect(new Url(url).protocol()).toBe(protocol)
 });
 
+each([
+	["http://localhost:8080/test", Protocol.HTTP]
+]).it("should extract protocol", (url, protocol) => {
+	expect(new Url(url).protocol2()).toBe(protocol)
+});
+
 it("should not extract protocol", () => {
 	const url: string = "ssh://localhost:8080/test"
-	expect(new Url(url).protocol()).toBe("unknown");
+	expect(new Url(url).protocol2()).toBe(Protocol.UNKNOWN);
 })

@@ -6,4 +6,12 @@ export class Url {
     }
 
     protocol = (): string => this.url.split("://")[0];
+    protocol2 = () => {
+    	return Protocol.UNKNOWN
+	}
+}
+
+export enum Protocol {
+	UNKNOWN,
+	HTTP
 }
