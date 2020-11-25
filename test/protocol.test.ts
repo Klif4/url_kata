@@ -15,12 +15,9 @@ each([
 });
 
 each([
-	["http://localhost:8080/test", Protocol.HTTP]
-]).it("should extract protocol", (url, protocol) => {
+	[Protocol.HTTP, "http://localhost:8080/test"],
+	[Protocol.UNKNOWN, "ssh://localhost:8080/ssh"]
+]).it("should extract protocol %s", (protocol, url) => {
 	expect(new Url(url).protocol2()).toBe(protocol)
 });
 
-it("should not extract protocol", () => {
-	const url: string = "ssh://localhost:8080/test"
-	expect(new Url(url).protocol2()).toBe(Protocol.UNKNOWN);
-})

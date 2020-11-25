@@ -7,11 +7,14 @@ export class Url {
 
     protocol = (): string => this.url.split("://")[0];
     protocol2 = () => {
-    	return Protocol.UNKNOWN
+        for (let protocolKey in Protocol) {
+
+        }
 	}
 }
 
 export enum Protocol {
-	UNKNOWN,
-	HTTP
+	UNKNOWN= "unknown",
+	HTTP= "http"
+
 }
