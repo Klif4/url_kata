@@ -6,6 +6,9 @@ export class Url {
     }
 
     protocol() {
+    	if(this.url.startsWith("ftp")) {
+			return "ftp";
+		}
         if (this.url.startsWith("https")) {
             return "https";
         }

@@ -1,17 +1,15 @@
 import {Url} from "../src/Url";
+import each from "jest-each";
 
-it("should extract protocol (http)", () => {
-	const url = "http://localhost:8080/test"
-	expect(new Url(url).protocol()).toBe("http")
+it("init", () => {
+	expect(true).toBe(true);
 })
 
-it("should extract protocol (https)", () => {
-	const url = "https://localhost:8080/test";
-	expect(new Url(url).protocol()).toBe("https")
-})
-
-it("should extract protocol (ftp)", () => {
-	const url = "ftp://localhost:8080/test";
-	expect(new Url(url).protocol()).toBe("ftp")
-})
-
+each([
+	["http://localhost:8080/test", "http"],
+	["https://localhost:8080/test", "https"],
+	["ftp://localhost:8080/test", "ftp"],
+	["sftp://localhost:8080/test", "sftp"],
+]).it("should extract protocol'", (url, protocol) => {
+	expect(new Url(url).protocol()).toBe(protocol)
+});
