@@ -1,27 +1,12 @@
-class Url {
-	constructor(url: string) {
-
-	}
-
-	protocol() {
-		return "http";
-	}
-}
+import {Url} from "../src/Url";
 
 it("should extract protocol (http)", () => {
-	let url = "http://localhost:8080/test"
-
-	var ttt = new Url(url);
-
-	expect(ttt.protocol()).toBe("http")
+	const url = "http://localhost:8080/test"
+	expect(new Url(url).protocol()).toBe("http")
 })
 
-
 it("should extract protocol (https)", () => {
-	let url = "https://localhost:8080/test"
-
-	var ttt = new Url(url);
-
-	expect(ttt.protocol()).toBe("https")
+	const url = "https://localhost:8080/test";
+	expect(new Url(url).protocol()).toBe("https")
 })
 
