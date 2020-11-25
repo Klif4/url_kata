@@ -5,13 +5,5 @@ export class Url {
         this.url = url;
     }
 
-    protocol() {
-    	if(this.url.startsWith("ftp")) {
-			return "ftp";
-		}
-        if (this.url.startsWith("https")) {
-            return "https";
-        }
-        return "http"
-    }
+    protocol = (): string => this.url.split("://")[0];
 }

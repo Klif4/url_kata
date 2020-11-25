@@ -10,6 +10,11 @@ each([
 	["https://localhost:8080/test", "https"],
 	["ftp://localhost:8080/test", "ftp"],
 	["sftp://localhost:8080/test", "sftp"],
-]).it("should extract protocol'", (url, protocol) => {
+]).it("should extract protocol", (url, protocol) => {
 	expect(new Url(url).protocol()).toBe(protocol)
 });
+
+it("should not extract protocol", () => {
+	const url: string = "ssh://localhost:8080/test"
+	expect(new Url(url).protocol()).toBe("unknown");
+})
